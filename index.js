@@ -70,8 +70,6 @@ createEmployee = (employee) => {
                 break;
             case 'Intern':
                 break;
-            case 'Exit':
-                break;
             default:
                 console.log('sorry');
                 break;

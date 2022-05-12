@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
@@ -21,6 +21,10 @@
   },
   "homepage": "https://github.com/rrangel07/10-Team_Profile_Generator#readme",
   "dependencies": {
+    "express": "^4.18.1",
     "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0"
   }
 }

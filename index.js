@@ -4,6 +4,7 @@ const Manager = require ('./lib/manager');
 const Engineer = require ('./lib/engineer');
 const Intern = require ('./lib/intern');
 var employee = 'Manager';
+const generateTeam = require('./src/template')
 const team = {
     manager: '',
     engineers: [],
@@ -133,10 +134,10 @@ createEmployee = (employee) => {
             break;
         default:
             console.log(team);
+            renderTeam();
             break;
     }
 }
-
 
 addAnotherMember = () =>{
     inquirer.prompt(addMEmber)
@@ -144,6 +145,36 @@ addAnotherMember = () =>{
             employee = response.option;
             createEmployee(employee);
         });
+}
+
+renderTeam = () =>{
+    const css=`
+    :root{
+        --cardheader: #457b9d;
+        --cardbody: #e9ecef;
+        --jumbotron: #1d3557;
+        --text: #f1faee
+    }
+    .jumbotron {
+        background-color: var(--jumbotron);
+        color: var(--text);
+    }
+    .card-header{
+        background-color: var(--cardheader);
+        color: var(--text);
+    }
+    .card-body{
+        background-color: var(--cardbody);
+    }
+    .customshadow {
+        box-shadow: 10px 10px 20px var(--jumbotron);
+    }
+    `
+    fs.writeFile('dist/index.html',generateTeam(team), (err) =>
+    err ? console.log(err) : console.log('Success!'));
+
+    fs.writeFile('dist/style.css',css, (err) =>
+    err ? console.log(err) : console.log('Success!'));
 }
 
 init();

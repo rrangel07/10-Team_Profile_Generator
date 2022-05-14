@@ -175,6 +175,12 @@ renderTeam = () =>{
 
     fs.writeFile('dist/style.css',css, (err) =>
     err ? console.log(err) : console.log('Success!'));
+
+    fs.writeFile('index.html',generateTeam(team), (err) =>
+    err ? console.log(err) : console.log('Success!'));
+
+    fs.writeFile('style.css',css, (err) =>
+    err ? console.log(err) : console.log('Success!'));
 }
 
 init();
